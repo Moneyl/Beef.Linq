@@ -544,6 +544,7 @@ namespace System.Linq
 		public static bool InternalFirst<TEnum, TSource>(TEnum items, out TSource val)
 			where TEnum : concrete, IEnumerator<TSource>
 		{
+            val = default;
 			using (var iterator = Iterator.Wrap(items))
 			{
 				var enumerator = iterator.mEnum;
@@ -591,6 +592,7 @@ namespace System.Linq
 		internal static bool InternalLast<TEnum, TSource>(TEnum items, out TSource val)
 			where TEnum : concrete, IEnumerator<TSource>
 		{
+            val = default;
 			var found = false;
 			using (var iterator = Iterator.Wrap(items))
 			{
@@ -644,6 +646,7 @@ namespace System.Linq
 		internal static bool InternalSingle<TEnum, TSource>(TEnum items, out TSource val)
 			where TEnum : concrete, IEnumerator<TSource>
 		{
+            val = default;
 			using (var iterator = Iterator.Wrap(items))
 			{
 				var enumerator = iterator.mEnum;
