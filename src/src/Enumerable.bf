@@ -735,7 +735,7 @@ namespace System.Linq
 
 		extension Iterator<TEnum, TSource> : IDisposable where TEnum : IDisposable
 		{
-			public void Dispose() mut => mEnum.Dispose();
+			public new void Dispose() mut => mEnum.Dispose();
 		}
 
 		struct SelectEnumerable<TSource, TEnum, TSelect, TResult> : Iterator<TEnum, TSource>, IEnumerable<TResult>
@@ -1627,7 +1627,7 @@ namespace System.Linq
 		public extension DynamicArray<TValue> : IDisposable
 			where TValue : IDisposable
 		{
-			public void Dispose() mut
+			public new void Dispose() mut
 			{
 				for (var it in mPtr)
 					it.Dispose();
@@ -1802,7 +1802,7 @@ namespace System.Linq
 		extension GroupByEnumerable<TSource, TEnum, TKey, TKeyDlg, TValue, TValueDlg>
 			where TValueDlg : Object
 		{
-			public void Dispose() mut
+			public new void Dispose() mut
 			{
 				base.Dispose();
 				DeleteAndNullify!(mValueDlg);
@@ -2809,7 +2809,7 @@ namespace System.Linq
 		extension SelectManyEnumerable<TSource, TEnum, TSelect, TResult, TEnum2>
 			where TSelect : Object
 		{
-			public void Dispose() mut
+			public new void Dispose() mut
 			{
 				base.Dispose();
 				DeleteAndNullify!(mSelect);
